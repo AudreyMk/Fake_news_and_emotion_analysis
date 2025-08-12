@@ -18,11 +18,11 @@ Ce projet vise à détecter les **fake news** et analyser les **émotions** expr
 
 - **Python**
 - **FastAPI** – pour la création d'une API backend
-- **psycopg / PostgreSQL (Neon)** – pour la base de données
+- **psycopg / PostgreSQL (Neon)** – pour la base de données postgres
 - **transformers (BERT)** – pour la classification des sentiments et fake news
-- **pandas / NumPy / scikit-learn**
+- **pandas / NumPy / scikit-learn** - Pour le Fine-tuning BERT (Fake News) et traitement des datasets
 - **AT Protocol SDK** – pour collecter des posts sur Bluesky
-- **Render / Vercel** – pour le déploiement de l’API
+- **Render** – pour le déploiement de l’API
 
 ---
 
@@ -31,13 +31,13 @@ Ce projet vise à détecter les **fake news** et analyser les **émotions** expr
 ```
 .
 ├── backend/                   # Backend FastAPI
-│   ├── collector.py          # Récupération des posts Bluesky
+│   ├── collector.py          # Récupération des posts Bluesky ((collecte aléatoire, collecte info user via le lien user, collecte d'un post unique via lien du post)
 │   ├── db.py                 # Connexion et requêtes PostgreSQL
 │   ├── backend.py            # API FastAPI
 │   └── ...
 ├── bert_finetune.py          # Fine-tuning du modèle BERT
 ├── analyse_des_sentiments.py # Prédiction sentiment/fake news
-├── test_getall_data.py       # Scripts de test et debug
+├── test_getall_data.py       # Scripts de collecte des données sur Bluesky (collecte aléatoire, collecte info user via le lien user, collecte d'un post unique via lien du post)
 ├── final_model_bert/         # Modèle BERT fine-tuné
 ├── .env                      # Variables d’environnement (non versionné)
 └── README.md
